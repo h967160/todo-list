@@ -6,9 +6,9 @@ import {
 } from 'components/common/auth.styled';
 import { ACLogoIcon } from 'assets/images';
 import { AuthInput } from 'components';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { login } from 'api/auth';
+import { checkPermission, login } from 'api/auth';
 import Swal from 'sweetalert2';
 
 const LoginPage = () => {
@@ -34,7 +34,7 @@ const LoginPage = () => {
         timer: 1500,
         position: 'top', //提示訊息位置
       });
-      navigate('/todo');
+      navigate('/todos');
       return;
     }
     // 登入失敗提示訊息
@@ -46,6 +46,22 @@ const LoginPage = () => {
       position: 'top',
     });
   };
+
+  useEffect(() => {
+    const checkTokenIsValid = async () => {
+      const authToken = localStorage.getItem('authToken');
+      if (!authToken) {
+        return;
+      }
+      const result = await checkPermission(authToken);
+      if (result) {
+        console.log("有執行");
+        navigate('/todos');
+      }
+    };
+
+    checkTokenIsValid();
+  }, [navigate]);
 
   return (
     <AuthContainer>
