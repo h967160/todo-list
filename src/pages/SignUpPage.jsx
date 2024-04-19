@@ -7,7 +7,7 @@ import {
 import { ACLogoIcon } from 'assets/images';
 import { AuthInput } from 'components';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { register } from 'api/auth';
 
@@ -15,6 +15,7 @@ const SignUpPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const navigate = useNavigate();
 
   const handleClick = async () => {
     if (username.length === 0) {
@@ -41,6 +42,7 @@ const SignUpPage = () => {
         timer: 1500,
         position: 'top', //提示訊息位置
       });
+      navigate('/todo');
       return;
     }
     // 登入失敗提示訊息
