@@ -1,20 +1,24 @@
 # Todo List - React 練習
 
-此專案是使用[Create React App](https://github.com/facebook/create-react-app)建立 React，用來實作 Todo List 的 CRUD 功能練習。
+此專案是使用[Create React App](https://github.com/facebook/create-react-app)建立 React，用來實作 Todo List 的 CRUD 功能及使用者註冊、登入和登出練習。
 
 ## Project Screenshots - 專案畫面
-![todolist-cover](https://github.com/h967160/todo-list/assets/152831113/95512e1e-39e0-419b-9cf1-84c72fc58c11)
+
+![todolist-cover-3](https://github.com/h967160/todo-list/assets/152831113/d077cbab-1610-445a-9a00-b8a2e74de031)
+![todolist-cover-2](https://github.com/h967160/todo-list/assets/152831113/3d1ee467-a714-4a29-b83a-90f4055c6969)
 
 ## Features - 功能
 
-- 可以查看 Todo List 列表。
-- 點選新增工作欄位可以新增一筆 todo。
-- 點選每筆 todo 左邊圓圈可以確認是否已完成該筆 todo。
-- 點選每筆 todo 右邊 X 可以刪除該筆 todo。
-- 下方剩餘項目數則會隨著 todo 的增加減少而變化。
-- 點選每筆 todo 的文字可以修改該筆 todo
-  - 修改後按下 Enter 即修改完成。
-  - 若要取消修改按下 Esc 即可取消修改。
+- 可以註冊新帳號並登入，成功登入後右上角會顯示用戶名稱，例如「Hi username」，提醒使用者已成功登入。
+- 必須註冊會員且登入後才可以使用以下功能
+  - 可以查看 Todo List 列表。
+  - 點選新增工作欄位可以新增一筆 todo。
+  - 點選每筆 todo 左邊圓圈可以確認是否已完成該筆 todo。
+  - 點選每筆 todo 右邊 X 可以刪除該筆 todo。
+  - 下方剩餘項目數則會隨著 todo 的增加減少而變化。
+  - 點選每筆 todo 的文字可以修改該筆 todo
+    - 修改後按下 Enter 即修改完成。
+    - 若要取消修改按下 Esc 即可取消修改。
 
 ## Environment SetUp - 環境建置
 
@@ -23,6 +27,8 @@
 - Sass v1.56.2
 - clsx v1.2.1
 - styled-components v5.3.5
+- sweetalert2 v11.6.4
+- jsonwebtoken v8.5.1
 
 ## Installation and Execution - 安裝並執行專案
 
@@ -65,13 +71,35 @@ To create a production build, use npm run build.
 
 ```
 
-7.請輸入以下網址進行測試：
+7.開啟另一個終端機，可使用 git bash 或命令提示字元：
 
 ```
-http://localhost:3000/todo
+cd todolist-react-starter
 ```
 
-8.如欲停止伺服器
+8.在第二個終端機中，啟動後端伺服器：
+
+```
+npm run dev-server
+```
+
+9.當終端機出現以下訊息，表示專案已啟動：
+
+```
+Resources
+http://localhost:3001/todos
+
+Home
+http://localhost:3001
+```
+
+10.進入專案後您會在以下網址進行測試：
+
+```
+http://localhost:3000/login
+```
+
+11.如欲停止伺服器
 
 ```
 ctrl + c
